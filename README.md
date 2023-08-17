@@ -47,10 +47,8 @@ The Travel Journal Backend is a Node.js application that provides API endpoints 
 
    ```
 
-   ```
-
    npm install
 
-   ```
+
 
    ```
