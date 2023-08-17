@@ -38,17 +38,16 @@ The Travel Journal Backend is a Node.js application that provides API endpoints 
 
 1. Clone the repository (if not already done):
 
-   ```bash
+   ````bash
    git clone https://github.com/your-username/travel-journal-backend.git
 
-   ```
+   ```bash
 
    cd travel-journal-backend
 
-   ```
-
+   ```bash
    npm install
 
 
 
-   ```
+   ````
