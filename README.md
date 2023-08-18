@@ -1,72 +1,46 @@
 # Travel Journal Backend
 
-The Travel Journal Backend is a Node.js application that provides API endpoints for user authentication, password reset functionality, and more for a travel journal application.
-
-## Table of Contents
-
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Features
-
-- User authentication with JWT (JSON Web Tokens)
-- Password reset functionality via email
-- API endpoints for user registration, login, password reset, and more
-- Secure password hashing using bcrypt
-- PostgreSQL database integration
-- Express.js framework for routing and middleware
-- Nodemailer for sending password reset emails
+This is the backend for a travel journal system. Users can sign up, log in, request password resets, and reset their passwords.
 
 ## Getting Started
 
-### Prerequisites
+1. Clone this repository.
+2. Install the required dependencies: `npm install`.
+3. Set up your PostgreSQL database and update the connection details in `db/dbConfig.js`.
+4. Set environment variables (see below).
+5. Start the server: `npm start`.
 
-- Node.js (version X.X.X)
-- PostgreSQL database
-- Nodemailer email service provider (e.g., Gmail)
-- Git (optional)
+## Environment Variables
 
-### Installation
+Create a `.env` file in the root directory with the following variables:
 
-1. Clone the repository (if not already done):
-
-   ```bash
-   git clone https://github.com/your-username/travel-journal-backend.git
-
-
-
-   cd travel-journal-backend
-
-
-   npm install
-
-   npm start
-   ```
-
+```bash
+DB_HOST=<your_database_host>
+DB_PORT=<your_database_port>
+DB_NAME=<your_database_name>
+DB_USER=<your_database_user>
+DB_PASSWORD=<your_database_password>
+JWT_SECRET=<your_jwt_secret>
+EMAIL_SERVICE=<your_email_service_provider>
+EMAIL_USER=<your_email_address>
+EMAIL_PASS=<your_email_password>
 ```
 
-The API will be accessible at http://localhost:3001.
+## Endpoints
 
-API Documentation
-For detailed API documentation and endpoints, refer to API Documentation.
+- `POST /auth/signup`: Sign up with email and password.
+- `POST /auth/login`: Log in with email and password.
+- `POST /auth/forgot-password`: Request a password reset link.
+- `POST /auth/reset-password`: Reset the password using a reset token.
 
-Technologies Used
-Node.js
-Express.js
-PostgreSQL
-JSON Web Tokens (JWT)
-Bcrypt
-Nodemailer
-Contributing
-Contributions are welcome! If you find a bug or want to add a new feature, feel free to open an issue or submit a pull request.
+## Testing
 
+You can use tools like Postman to test the endpoints.
 
-```
+## Contributing
+
+Contributions are welcome! Feel free to submit pull requests or open issues.
+
+## License
+
+This project is licensed under the MIT License.
