@@ -38,16 +38,35 @@ The Travel Journal Backend is a Node.js application that provides API endpoints 
 
 1. Clone the repository (if not already done):
 
-   ````bash
+   ```bash
    git clone https://github.com/your-username/travel-journal-backend.git
 
-   ```bash
+
 
    cd travel-journal-backend
 
-   ```bash
+
    npm install
 
+   npm start
+   ```
+
+```
+
+The API will be accessible at http://localhost:3001.
+
+API Documentation
+For detailed API documentation and endpoints, refer to API Documentation.
+
+Technologies Used
+Node.js
+Express.js
+PostgreSQL
+JSON Web Tokens (JWT)
+Bcrypt
+Nodemailer
+Contributing
+Contributions are welcome! If you find a bug or want to add a new feature, feel free to open an issue or submit a pull request.
 
 
-   ````
+```
