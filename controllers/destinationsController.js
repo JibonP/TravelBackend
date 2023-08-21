@@ -3,6 +3,16 @@ const router = express.Router();
 const axios = require("axios");
 const db = require("../db/dbConfig");
 
+const fetchAddedDestinations = async () => {
+  try {
+    // Replace this with your actual logic to fetch added destinations
+    const addedDestinations = await db.any("SELECT * FROM added_destinations");
+    return addedDestinations;
+  } catch (error) {
+    throw error;
+  }
+};
+
 router.get("/", async (req, res) => {
   try {
     const destinations = await db.any("SELECT * FROM destinations");
@@ -74,14 +84,5 @@ router.delete("/:destinationId/delete", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
-
-const fetchAddedDestinations = async () => {
-  try {
-    const addedDestinations = await db.any("SELECT * FROM added_destinations");
-    return addedDestinations;
-  } catch (error) {
-    throw error;
-  }
-};
 
 module.exports = router;
