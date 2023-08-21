@@ -12,6 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/added-destinations", async (req, res) => {
+  try {
+    const addedDestinations = await fetchAddedDestinations();
+    res.json(addedDestinations);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 router.post("/add", async (req, res) => {
   const { name, location } = req.body;
 
@@ -65,5 +74,14 @@ router.delete("/:destinationId/delete", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+const fetchAddedDestinations = async () => {
+  try {
+    const addedDestinations = await db.any("SELECT * FROM added_destinations");
+    return addedDestinations;
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = router;

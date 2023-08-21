@@ -25,5 +25,13 @@ app.get("/", (req, res) => {
 app.get("*", (req, res) => {
   res.status(404).send("Page not found!");
 });
+app.get("/added-destinations", async (req, res) => {
+  try {
+    const addedDestinations = await fetchAddedDestinations();
+    res.json(addedDestinations);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 module.exports = app;

@@ -25,7 +25,6 @@ Destination.addDestination = async (name, location, imageUrl) => {
   }
 };
 
-// Function to retrieve a destination by ID from the database
 Destination.getDestinationById = async (id) => {
   try {
     const destination = await db.one(
@@ -33,6 +32,15 @@ Destination.getDestinationById = async (id) => {
       id
     );
     return destination;
+  } catch (error) {
+    return error;
+  }
+};
+
+Destination.fetchAddedDestinations = async () => {
+  try {
+    const addedDestinations = await db.any("SELECT * FROM added_destinations");
+    return addedDestinations;
   } catch (error) {
     return error;
   }

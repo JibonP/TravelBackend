@@ -9,4 +9,16 @@ router.get(
   usersController.getUserProfile
 );
 
+router.put(
+  "/update-password",
+  authMiddleware.verifyToken,
+  usersController.updatePassword
+);
+
+router.delete(
+  "/delete-account",
+  authMiddleware.verifyToken,
+  usersController.deleteAccount
+);
+
 module.exports = router;

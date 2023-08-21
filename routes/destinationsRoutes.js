@@ -16,4 +16,6 @@ router.delete(
   destinationsController.deleteDestination
 );
 
+router.get("/added-destinations", destinationsController.getAddedDestinations);
+
 module.exports = router;

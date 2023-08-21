@@ -40,4 +40,23 @@ User.verifyPassword = async (providedPassword, storedPassword) => {
   }
 };
 
+User.updatePassword = async (userId, newPassword) => {
+  try {
+    await db.none("UPDATE users SET password = $1 WHERE id = $2", [
+      newPassword,
+      userId,
+    ]);
+  } catch (error) {
+    return error;
+  }
+};
+
+User.deleteUser = async (userId) => {
+  try {
+    await db.none("DELETE FROM users WHERE id = $1", [userId]);
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = User;
