@@ -76,6 +76,7 @@ router.post(
         expiresIn: "1h",
       });
 
+      console.log("JWT_SECRET:", JWT_SECRET); // Add this line
       res.json({ user: newUser, token });
     } catch (error) {
       console.error(error);
