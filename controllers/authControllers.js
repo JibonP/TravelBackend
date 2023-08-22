@@ -42,7 +42,12 @@ router.post(
   "/signup",
   [
     body("email").isEmail().normalizeEmail(),
-    body("password").isLength({ min: 8 }),
+    body("password")
+      .isLength({ min: 8 })
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
+      .withMessage(
+        "Password must be at least 8 characters long and include at least one letter, one number, and one special character."
+      ),
   ],
   async (req, res) => {
     const { email, password } = req.body;
@@ -76,7 +81,7 @@ router.post(
         expiresIn: "1h",
       });
 
-      console.log("JWT_SECRET:", JWT_SECRET); // Add this line
+      console.log("JWT_SECRET:", JWT_SECRET);
       res.json({ user: newUser, token });
     } catch (error) {
       console.error(error);
@@ -152,7 +157,12 @@ router.post(
   "/reset-password",
   [
     body("token").isLength({ min: 64, max: 64 }),
-    body("newPassword").isLength({ min: 8 }),
+    body("newPassword")
+      .isLength({ min: 8 })
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
+      .withMessage(
+        "Password must be at least 8 characters long and include at least one letter, one number, and one special character."
+      ),
   ],
   async (req, res) => {
     const { token, newPassword } = req.body;
