@@ -42,12 +42,7 @@ router.post(
   "/signup",
   [
     body("email").isEmail().normalizeEmail(),
-    body("password")
-      .isLength({ min: 8 })
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
-      .withMessage(
-        "Password must be at least 8 characters long and include at least one letter, one number, and one special character."
-      ),
+    body("password").isLength({ min: 8 }),
   ],
   async (req, res) => {
     const { email, password } = req.body;
@@ -157,12 +152,7 @@ router.post(
   "/reset-password",
   [
     body("token").isLength({ min: 64, max: 64 }),
-    body("newPassword")
-      .isLength({ min: 8 })
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/)
-      .withMessage(
-        "Password must be at least 8 characters long and include at least one letter, one number, and one special character."
-      ),
+    body("newPassword").isLength({ min: 8 }),
   ],
   async (req, res) => {
     const { token, newPassword } = req.body;
