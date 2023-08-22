@@ -17,6 +17,13 @@ app.use("/auth", authController);
 app.use("/destinations", destinationController);
 app.use("/reviews", reviewController);
 app.use("/users", userController);
+app.use(
+  cors({
+    origin: "https://64e4a4dc65a5c1009c27bde7--comfy-pika-aaa273.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Travel App");

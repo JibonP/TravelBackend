@@ -5,7 +5,6 @@ const db = require("../db/dbConfig");
 
 const fetchAddedDestinations = async () => {
   try {
-    // Replace this with your actual logic to fetch added destinations
     const addedDestinations = await db.any("SELECT * FROM added_destinations");
     return addedDestinations;
   } catch (error) {
