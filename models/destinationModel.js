@@ -2,7 +2,6 @@ const db = require("../db/dbConfig");
 
 const Destination = {};
 
-// Function to retrieve all destinations from the database
 Destination.getAllDestinations = async () => {
   try {
     const destinations = await db.any("SELECT * FROM destinations");
@@ -12,7 +11,6 @@ Destination.getAllDestinations = async () => {
   }
 };
 
-// Function to add a new destination to the database
 Destination.addDestination = async (name, location, imageUrl) => {
   try {
     const newDestination = await db.one(
